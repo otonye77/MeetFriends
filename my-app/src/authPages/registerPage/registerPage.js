@@ -1,9 +1,7 @@
-const RegisterPage = () => {
-    return (
-        <div>
-            <h1>Register</h1>
-        </div>
-    )
-}
+import AuthBox from "../../shared/components/authBox";
 
-export default RegisterPage
+const RegisterPage = () => {
+  return <AuthBox>REGISTER PAGE</AuthBox>;
+};
+
+export default RegisterPage;

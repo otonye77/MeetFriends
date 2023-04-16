@@ -1,9 +1,7 @@
-const LoginPage = () => {
-    return (
-        <div>
-            <h1>Login</h1>
-        </div>
-    )
-}
+import AuthBox from "../../shared/components/authBox";
 
-export default LoginPage
+const LoginPage = () => {
+  return <AuthBox>LoginPage</AuthBox>;
+};
+
+export default LoginPage;
