@@ -1,5 +1,6 @@
 const User = require("../../models/user");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const postRegister = async (req, res) => {
   try {
@@ -14,14 +15,23 @@ const postRegister = async (req, res) => {
       mail: mail.toLowerCase(),
       password: encryptedPassword,
     });
-    const token = "JWT TOKEN";
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        mail,
+      },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "7d",
+      }
+    );
     return res.status(201).json({
       userDetails: {
         mail: user.mail,
         token,
-        username: user.username
-      }
-    })
+        username: user.username,
+      },
+    });
   } catch (err) {
     return res.status(500).send("Error occured please try again");
   }
