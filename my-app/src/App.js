@@ -4,16 +4,20 @@ import RegisterPage from "./authPages/registerPage/registerPage";
 import LoginPage from "./authPages/loginPage/loginPage";
 import DashBoardPage from "./dashboard/dashboard";
 import "./App.css";
+import AlertNotification from "./shared/components/alertNotification";
 
 function App() {
-  return <div className="App">
-    <Routes>
+  return (
+    <div className="App">
+      <Routes>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<DashBoardPage />} />
         <Route path="/" element={<DashBoardPage />} />
       </Routes>
-  </div>;
+      <AlertNotification />
+    </div>
+  );
 }
 
 export default App;
