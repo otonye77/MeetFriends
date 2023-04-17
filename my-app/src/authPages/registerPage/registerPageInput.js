@@ -1,7 +1,7 @@
 import InputWithLabels from "../../shared/components/inputWithLabels";
 
 const RegisterPageInput = (props) => {
-  const { mail, setMail, username, setUsername, password, setPassword } = props;
+  const { mail, setMail, username, setUserName, password, setPassword } = props;
   return (
     <>
       <InputWithLabels
@@ -13,7 +13,7 @@ const RegisterPageInput = (props) => {
       />
       <InputWithLabels
         value={username}
-        setValue={setUsername}
+        setValue={setUserName}
         label="Enter Username"
         type="text"
         placeholder="Enter Username"
