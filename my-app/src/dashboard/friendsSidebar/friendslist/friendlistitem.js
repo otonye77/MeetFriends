@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import Avatar from "../../../shared/components/avatar";
 import { Typography } from "@mui/material";
+import OnlineIndicator from "./onlineindicator";
 
 const FriendsListItem = ({ id, username, isOnline }) => {
   return (
@@ -26,7 +27,10 @@ const FriendsListItem = ({ id, username, isOnline }) => {
         }}
         variant="subtitle1"
         align="left"
-      >{username}</Typography>
+      >
+        {username}
+      </Typography>
+      {isOnline && <OnlineIndicator />}
     </Button>
   );
 };
