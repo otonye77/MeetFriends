@@ -7,6 +7,8 @@ import { DialogContent } from "@mui/material";
 import { DialogContentText } from "@mui/material";
 import InputWithLabels from "../../shared/components/inputWithLabels";
 import CustomPrimaryButton from "../../shared/components/customPrimaryButton";
+import { connect } from "react-redux";
+import { getActions } from "../../store/actions/friendsAction";
 
 const MainContainer = styled("div")({});
 
@@ -18,7 +20,11 @@ const AddFriendDialog = ({
   const [mail, setMail] = useState("");
   const [isFormValid, setIsFormValid] = useState("");
 
-  const handleSendInvitation = () => {};
+  const handleSendInvitation = () => {
+    sendFriendInvitation({
+      mail
+    })
+  };
 
   const handleCloseDialog = () => {
     closeDialogHandler();
@@ -50,14 +56,26 @@ const AddFriendDialog = ({
           />
         </DialogContent>
         <DialogActions>
-          <CustomPrimaryButton onClick={handleSendInvitation} disabled={!isFormValid} label="Send" additionalStyles={{
-            marginLeft: "15px",
-            marginRight: "15px",
-            marginBottom: "10px"
-          }} />
+          <CustomPrimaryButton
+            onClick={handleSendInvitation}
+            disabled={!isFormValid}
+            label="Send"
+            additionalStyles={{
+              marginLeft: "15px",
+              marginRight: "15px",
+              marginBottom: "10px",
+            }}
+          />
         </DialogActions>
       </Dialog>
     </div>
   );
 };
-export default AddFriendDialog;
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch)
+  }
+}
+
+export default connect(null, mapActionsToProps)(AddFriendDialog);
