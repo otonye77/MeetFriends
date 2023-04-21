@@ -21,9 +21,12 @@ const AddFriendDialog = ({
   const [isFormValid, setIsFormValid] = useState("");
 
   const handleSendInvitation = () => {
-    sendFriendInvitation({
-      mail
-    })
+    sendFriendInvitation(
+      {
+        targetMailAddress: mail,
+      },
+      handleCloseDialog
+    );
   };
 
   const handleCloseDialog = () => {
@@ -74,8 +77,8 @@ const AddFriendDialog = ({
 
 const mapActionsToProps = (dispatch) => {
   return {
-    ...getActions(dispatch)
-  }
-}
+    ...getActions(dispatch),
+  };
+};
 
 export default connect(null, mapActionsToProps)(AddFriendDialog);
