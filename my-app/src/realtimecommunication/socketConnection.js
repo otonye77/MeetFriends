@@ -9,8 +9,14 @@ export const connectWithSocketServer = (userDetails) => {
       token: jwtToken,
     },
   });
+
   socket.on("connect", () => {
     console.log("Successfully connect with socket server");
     console.log(socket.id);
   });
+
+  socket.on("friends-invitation", (data) => {
+    store.dispatch(setPendingFriendsInvitation(data))
+  })
+
 };

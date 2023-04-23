@@ -12,10 +12,11 @@ const userSchema = new Schema({
     password: {
         type: String
     },
-    friend: [{
+    friends: [{
         type: Schema.Types.ObjectId, 
         ref: "User"
     }]
 }, { timestamps: true });
 
 module.exports = User = mongoose.model("User", userSchema)
+

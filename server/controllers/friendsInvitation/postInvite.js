@@ -1,4 +1,5 @@
 const User = require("../../models/user");
+const FriendInvitation = require("../../models/friendsInvitation");
 
 const postInvite = async (req, res) => {
   const { targetMailAddress } = req.body;
@@ -18,7 +19,7 @@ const postInvite = async (req, res) => {
       .send(`Friend of ${targetMailAddress} cannot be found`);
   }
 
-  const invitationAlreadyReceived = await Invitation.findOne({
+  const invitationAlreadyReceived = await FriendInvitation.findOne({
     senderId: userId,
     receiverId: targetUser._id,
   });
@@ -34,6 +35,13 @@ const postInvite = async (req, res) => {
   if (usersAlreadyFriends) {
     return res.status(409).send("You are already friends with this user");
   }
+
+  const newInvitation = await FriendInvitation.create({
+    senderId: userId,
+    receiverId: targetUser._id,
+  });
+
+  return res.status(201).send("Invitation has been sent");
 };
 
 module.exports = {
