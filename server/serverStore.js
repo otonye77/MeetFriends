@@ -12,6 +12,16 @@ const removeConnectedUser = (socketId) => {
   }
 };
 
+const getActiveConnections = (userId) => {
+  const activeConnections = [];
+  connectedUser.forEach((key, value) => {
+    if(value.userId === userId){
+      activeConnections.push(key)
+    }
+  })
+  return activeConnections
+};
+
 module.exports = {
   addNewConnectedUser,
   removeConnectedUser,
