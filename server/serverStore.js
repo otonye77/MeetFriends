@@ -24,7 +24,7 @@ const removeConnectedUser = (socketId) => {
 
 const getActiveConnections = (userId) => {
   const activeConnections = [];
-  connectedUser.forEach((key, value) => {
+  connectedUser.forEach((value, key) => {
     if (value.userId === userId) {
       activeConnections.push(key);
     }
