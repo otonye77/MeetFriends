@@ -14,10 +14,10 @@ export const getActions = (dispatch) => {
   };
 };
 
-export const setPendingFriendsInvitation = (pendingFriendsInvitation) => {
+export const setPendingFriendsInvitation = (pendingFriendsInvitations) => {
   return {
     type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
-    pendingFriendsInvitation
+    pendingFriendsInvitations
   }
 }
 
