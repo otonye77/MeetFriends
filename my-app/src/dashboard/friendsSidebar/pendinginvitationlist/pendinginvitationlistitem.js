@@ -66,4 +66,4 @@ const mapActionsToProps = (dispatch) => {
   }
 }
 
-export default connect(null. mapActionsToProps)(PendingInvitationListItem);
+export default connect(null, mapActionsToProps)(PendingInvitationListItem);
