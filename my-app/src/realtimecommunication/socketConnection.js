@@ -2,6 +2,7 @@ import io from "socket.io-client";
 import {
   setPendingFriendsInvitation,
   setFriends,
+  setOnlineUsers
 } from "../store/actions/friendsAction";
 import store from "../store/store";
 
@@ -31,6 +32,7 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("online-users", (data) => {
-    console.log("online users");
+    const { onlineUsers } = data;
+    store.dispatch(setOnlineUsers(onlineUsers))
   });
 };
