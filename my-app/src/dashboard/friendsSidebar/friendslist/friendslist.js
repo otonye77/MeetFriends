@@ -37,3 +37,8 @@ const mapStoreStateToProps = ({ friends }) => {
 };
 
 export default connect(mapStoreStateToProps)(FriendsList);
+
+
+
+
+
