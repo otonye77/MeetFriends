@@ -5,11 +5,11 @@ import OnlineIndicator from "./onlineindicator";
 import { chatTypes, getActions } from "../../../store/actions/chatAction";
 import { connect } from "react-redux";
 
-
 const FriendsListItem = ({ id, username, isOnline, setChosenChatDetails }) => {
   const handleChooseActiveConversation = () => {
-    setChosenChatDetails({ id, name: username }, chatTypes.DIRECT);
+    setChosenChatDetails({ id: id, name: username }, chatTypes.DIRECT);
   };
+
   return (
     <Button
       onClick={handleChooseActiveConversation}
@@ -44,8 +44,8 @@ const FriendsListItem = ({ id, username, isOnline, setChosenChatDetails }) => {
 
 const mapActionsToProps = (dispatch) => {
   return {
-    ...getActions(dispatch)
-  }
-}
+    ...getActions(dispatch),
+  };
+};
 
 export default connect(null, mapActionsToProps)(FriendsListItem);

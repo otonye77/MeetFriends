@@ -17,16 +17,16 @@ export const getActions = (dispatch) => {
 };
 
 export const setChosenChatDetails = (chatDetails, type) => {
-    return {
-        type: chatActions.SET_CHOSEN_CHAT_DETAILS,
-        chatTypes: type,
-        chatDetails
-    }
-}
+  return {
+    type: chatActions.SET_CHOSEN_CHAT_DETAILS,
+    chatType: type,
+    chatDetails,
+  };
+};
 
 export const setMessages = (messages) => {
-    return {
-        type: chatActions.SET_MESSAGES,
-        messages
-    }
-}
+  return {
+    type: chatActions.SET_MESSAGES,
+    messages,
+  };
+};
