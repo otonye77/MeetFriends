@@ -35,6 +35,10 @@ const registerSocketServer = (server) => {
       directMessageHandler(socket, data);
     });
 
+    socket.on("direct-message-history", (data) => {
+      directChatHistoryHandler(socket, data)
+    })
+
     socket.on("disconnect", () => {
       disconnectHandler(socket);
     });
