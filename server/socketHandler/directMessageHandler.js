@@ -12,7 +12,6 @@ const directMessageHandler = async (socket, data) => {
       date: new Date(),
       type: "DIRECT",
     });
-    //FIND IF CONVERSATION EXIST BETWEEN THIS TWO USERS IF NOT CREATE NEW
     const conversation = await Conversation.findOne({
       participants: {
         $all: [userId, receiverUserId],
