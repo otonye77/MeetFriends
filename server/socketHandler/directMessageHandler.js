@@ -8,7 +8,7 @@ const directMessageHandler = async (socket, data) => {
     const { receiverUserId, content } = data;
     const message = await Message.create({
       content: content,
-      authorId: userId,
+      author: userId,
       date: new Date(),
       type: "DIRECT",
     });
@@ -27,7 +27,7 @@ const directMessageHandler = async (socket, data) => {
         messages: [message._id],
         participants: [userId, receiverUserId],
       });
-      chatUpdates.updateChatHistory(conversation._id.toString());
+      chatUpdates.updateChatHistory(newConversation._id.toString());
     }
   } catch (err) {
     console.log(err);
