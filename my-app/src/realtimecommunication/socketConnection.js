@@ -42,7 +42,7 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("room-create", (data) => {
-    console.log(data);
+    roomHandler.newRoomCreated(data)
   });
 };
 
