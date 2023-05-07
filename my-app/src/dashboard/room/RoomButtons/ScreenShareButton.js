@@ -4,13 +4,13 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import StopScreenShareIcon from "@mui/icons-material/StopScreenShare";
 
 const ScreenShareButton = () => {
-  const [screenShareEnabled, setScreenShareEnabled] = useState(true);
+  const [isScreenSharingActive, setIsScreenSharingActive] = useState(false);
   const handleToggleScreenShare = () => {
-    setScreenShareEnabled(!screenShareEnabled);
+    setIsScreenSharingActive(!isScreenSharingActive);
   };
   return (
     <IconButton onClick={handleToggleScreenShare} style={{ color: "white" }}>
-      {screenShareEnabled ? <ScreenShareIcon /> : <StopScreenShareIcon />}
+      {isScreenSharingActive ? <StopScreenShareIcon /> : <ScreenShareIcon />}
     </IconButton>
   );
 };
