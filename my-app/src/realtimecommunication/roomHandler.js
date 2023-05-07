@@ -14,5 +14,4 @@ export const newRoomCreated = (data) => {
 
 export const updateActiveRooms = (data) => {
   const {activeRooms} = data;
-  console.log(activeRooms);
 }
