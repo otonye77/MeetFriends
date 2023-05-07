@@ -23,8 +23,13 @@ const reducer = (state = initState, action) => {
     case roomActions.SET_ROOM_DETAILS:
       return {
         ...state,
-        roomDetails: action.roomDetails
-      }
+        roomDetails: action.roomDetails,
+      };
+    case roomActions.SET_ACTIVE_ROOMS:
+      return {
+        ...state,
+        activeRooms: action.SET_ACTIVE_ROOMS,
+      };
     default:
       return state;
   }
