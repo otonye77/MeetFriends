@@ -1,8 +1,14 @@
-import { useState } from "react"
+import { IconButton } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 
 const CloseRoomButton = () => {
-    return (
-        <div></div>
-    )
-}
-export default CloseRoomButton
+  const handleLeaveRoom = () => {
+    
+  };
+  return (
+    <IconButton onClick={handleLeaveRoom} style={{ color: "white" }}>
+     <CloseIcon />
+    </IconButton>
+  );
+};
+export default CloseRoomButton;

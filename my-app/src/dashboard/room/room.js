@@ -4,6 +4,7 @@ import ResizeRoomButton from "./ResizeRoomButton.js";
 import VideoContainer from "./VideoContainer.js";
 import RoomButtons from "./RoomButtons/RoomButtons.js";
 
+
 const MainContainer = styled("div")({
   position: "absolute",
   borderRadius: "8px",
