@@ -14,18 +14,18 @@ const updateChatHistory = async (
       select: "username _id",
     },
   });
+
   if (conversation) {
     const io = serverStore.getSocketServerInstance();
-
     if (toSpecifiedSocketId) {
       return io.to(toSpecifiedSocketId).emit("direct-chat-history", {
         messages: conversation.messages,
         participants: conversation.participants,
       });
     }
-    conversation.participants.forEach((userId) => {
+    conversation.participants.forEach((userID) => {
       const activeConnections = serverStore.getActiveConnections(
-        userId.toString()
+        userID.toString()
       );
       activeConnections.forEach((socketId) => {
         io.to(socketId).emit("direct-chat-history", {
@@ -38,3 +38,4 @@ const updateChatHistory = async (
 };
 
 module.exports = { updateChatHistory };
+
