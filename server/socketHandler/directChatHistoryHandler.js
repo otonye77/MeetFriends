@@ -1,5 +1,5 @@
 const Conversation = require("../models/conversation");
-const chatUpdates = require("../socketHandler/updates/chat");
+const chatUpdates = require("./updates/chat");
 
 const directChatHistoryHandler = async (socket, data) => {
   try {

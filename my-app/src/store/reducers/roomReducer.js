@@ -1,38 +1,43 @@
 import { roomActions } from "../actions/roomAction";
 
-const initState = {
-  isUserInRoom: false,
+const initialState = {
+  isUserInRoom : false,
   isUserRoomCreator: false,
   roomDetails: null,
-  activeRoom: [],
+  activeRooms: [],
   localStream: null,
   remoteStreams: [],
   audioOnly: false,
   screenSharingStream: null,
-  isScreenSharingActive: false,
+  isScreenSharingActive: false
 };
 
-const reducer = (state = initState, action) => {
-  switch (action.type) {
-    case roomActions.OPEN_ROOM:
-      return {
-        ...state,
-        isUserInRoom: action.isUserInRoom,
-        isUserRoomCreator: action.isUserRoomCreator,
-      };
-    case roomActions.SET_ROOM_DETAILS:
-      return {
-        ...state,
-        roomDetails: action.roomDetails,
-      };
-    case roomActions.SET_ACTIVE_ROOMS:
-      return {
-        ...state,
-        activeRooms: action.SET_ACTIVE_ROOMS,
-      };
-    default:
-      return state;
+const reducer = (state = initialState, action) => {
+  switch(action.type){
+      case roomActions.OPEN_ROOM:
+          return {
+              ...state,
+              isUserInRoom: action.isUserInRoom,
+              isUserRoomCreator: action.isUserRoomCreator
+          }
+          case roomActions.SET_ROOM_DETAILS:
+              return {
+                  ...state,
+                  roomDetails: action.roomDetails
+              }
+          case roomActions.SET_ACTIVE_ROOMS:
+              return {
+                  ...state,
+                  activeRooms: action.activeRooms
+              }
+          case roomActions.SET_LOCAL_STREAMS:
+              return {
+                  ...state,
+                  localStream: action.localStream
+              }
+      default:
+          return state
   }
-};
+}
 
-export default reducer;
+export default reducer

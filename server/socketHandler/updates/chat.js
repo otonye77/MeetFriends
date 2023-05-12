@@ -38,4 +38,3 @@ const updateChatHistory = async (
 };
 
 module.exports = { updateChatHistory };
-
