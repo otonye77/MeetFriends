@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { styled } from "@mui/system";
+import React, { useEffect, useRef } from "react";
+import { styled } from "@mui/material";
 
 const MainContainer = styled("div")({
   height: "50%",
@@ -8,13 +8,14 @@ const MainContainer = styled("div")({
   borderRadius: "8px",
 });
 
-const VideoEl = styled("div")({
+const VideoEl = styled("video")({
   width: "100%",
   height: "100%",
 });
 
 const Video = ({ stream, isLocalStream }) => {
   const videoRef = useRef();
+
   useEffect(() => {
     const video = videoRef.current;
     video.srcObject = stream;
@@ -22,10 +23,12 @@ const Video = ({ stream, isLocalStream }) => {
       video.play();
     };
   }, [stream]);
+
   return (
     <MainContainer>
       <VideoEl ref={videoRef} autoPlay muted={isLocalStream ? true : false} />
     </MainContainer>
   );
 };
+
 export default Video;
