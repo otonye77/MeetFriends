@@ -47,9 +47,8 @@ export const connectWithSocketServer = (userDetails) => {
   });
 
   socket.on("active-rooms", (data) => {
-    roomHandler.updateActiveRooms(data)
-  })
-
+    roomHandler.updateActiveRooms(data);
+  });
 };
 
 export const sendDirectMessage = (data) => {
@@ -65,5 +64,9 @@ export const createNewRoom = () => {
 };
 
 export const joinRoom = (data) => {
-  socket.emit("room-join", data)
-}
+  socket.emit("room-join", data);
+};
+
+export const leaveRoom = (data) => {
+  socket.emit("room-leave", data);
+};
